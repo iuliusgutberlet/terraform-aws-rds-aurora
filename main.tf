@@ -58,7 +58,7 @@ resource "aws_rds_cluster" "this" {
   deletion_protection                 = var.deletion_protection
   enable_global_write_forwarding      = var.enable_global_write_forwarding
   enabled_cloudwatch_logs_exports     = var.enabled_cloudwatch_logs_exports
-  enable_http_endpoint                = var.enable_http_endpoint
+  enable_httpo_endpoint                = var.enable_http_endpoint
   engine                              = var.engine
   engine_mode                         = var.engine_mode
   engine_version                      = var.engine_version
@@ -198,6 +198,7 @@ resource "aws_rds_cluster_endpoint" "this" {
   cluster_endpoint_identifier = each.value.identifier
   cluster_identifier          = aws_rds_cluster.this[0].id
   custom_endpoint_type        = each.value.type
+  instance_class              = var.instance_class
   excluded_members            = try(each.value.excluded_members, null)
   static_members              = try(each.value.static_members, null)
   tags                        = merge(var.tags, try(each.value.tags, {}))
