@@ -198,7 +198,6 @@ resource "aws_rds_cluster_endpoint" "this" {
   cluster_endpoint_identifier = each.value.identifier
   cluster_identifier          = aws_rds_cluster.this[0].id
   custom_endpoint_type        = each.value.type
-  instance_class              = var.instance_class
   excluded_members            = try(each.value.excluded_members, null)
   static_members              = try(each.value.static_members, null)
   tags                        = merge(var.tags, try(each.value.tags, {}))
