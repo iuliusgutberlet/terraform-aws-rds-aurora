@@ -58,7 +58,7 @@ resource "aws_rds_cluster" "this" {
   deletion_protection                 = var.deletion_protection
   enable_global_write_forwarding      = var.enable_global_write_forwarding
   enabled_cloudwatch_logs_exports     = var.enabled_cloudwatch_logs_exports
-  enable_httpo_endpoint                = var.enable_http_endpoint
+  enable_http_endpoint                = var.enable_http_endpoint
   engine                              = var.engine
   engine_mode                         = var.engine_mode
   engine_version                      = var.engine_version
